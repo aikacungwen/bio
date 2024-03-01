@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .bio-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 10px;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #000;
+            border: 2px solid #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 20%;
+            height: 500px;
+            background-image: url('https://i.pinimg.com/originals/ef/5e/4b/ef5e4b4d024c66b42311e337ae8ab4cc.gif');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            border-radius: 30%;
+            max-width: 50%;
+            height: auto;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        h1 {
+            color: #fff;
+            margin-top: 0;
+        }
+
+        .link-container {
+            display: grid;
+            gap: 10px;
+            margin-top: 10px;
+            margin-bottom: 100px;
+        }
+
+        .link {
+            display: flex;
+            align-items: center;
+            background: #FFFFFF;
+            border: 2px solid #182F3E;
+            padding: 20px;
+            text-decoration: none;
+            color: #000;
+            border-radius: 10%;
+            cursor: pointer;
+        }
+
+        .share-btn {
+            margin-left: auto;
+            padding: 5px;
+            background-color: #182F3E;
+            color: #fff;
+            border: none;
+            border-radius: 0px;
+            cursor: pointer;
+        }
+
+        .share-icon {
+            margin-right: 5px;
+            width: 15px;
+            height: 15px;
+        }
+
+        .social-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .social-popup button {
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px;
+            text-decoration: none;
+            color: #182F3E;
+            cursor: pointer;
+            background: #FFFFFF;
+            border: 2px solid #182F3E;
+            border-radius: 5px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #182F3E;
+            color: #fff;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bio-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeA16UkVFz9IYB0dAOlctTSXmZ_aPDBTGbwtEYp3UQGR6cv0CwrlgoBQ8&s=10" alt="Foto Profil">
+        <h1>Aikacungwen</h1>
+        <div class="link-container">
+            <div class="link">
+                <a href="https://play.1ac.site" target="_blank" rel="noopener noreferrer">
+                    Nonton Donghua
+                </a>
+                <button class="share-btn" onclick="openSocialPopup('Nonton Donghua', 'https://play.1ac.site')">
+                    <img class="share-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrC4yXthmXYzahPVnq-3wuTWRZCqathHM7bQ&usqp=CAU" alt="Bagikan"> 
+                </button>
+            </div>
+            <div class="link">
+                <a href="https://manhua.aikacungwen.biz.id" target="_blank" rel="noopener noreferrer">
+                    Baca Manhua BTTH
+                </a>
+                <button class="share-btn" onclick="openSocialPopup('Baca Manhua BTTH', 'https://manhua.aikacungwen.biz.id')">
+                    <img class="share-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrC4yXthmXYzahPVnq-3wuTWRZCqathHM7bQ&usqp=CAU" alt="Bagikan"> 
+                </button>
+            </div>
+            <!-- Tambahkan lebih banyak tombol "Bagikan" dan tautan sesuai kebutuhan -->
+        </div>
+        <div class="social-popup" id="socialPopupNontonDonghua">
+            <button class="close-btn" onclick="closeSocialPopup('socialPopupNontonDonghua')">Close</button>
+            <button class="share-btn" onclick="shareOnFacebook('Nonton Donghua', 'https://play.1ac.site')">
+                <img class="share-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrC4yXthmXYzahPVnq-3wuTWRZCqathHM7bQ&usqp=CAU" alt="Bagikan"> Share on Facebook
+            </button>
+            <button class="share-btn" onclick="shareOnTwitter('Nonton Donghua', 'https://play.1ac.site')">
+                <img class="share-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrC4yXthmXYzahPVnq-3wuTWRZCqathHM7bQ&usqp=CAU" alt="Bagikan"> Share on Twitter
+            </button>
+            <button class="share-btn" onclick="copyLink('https://play.1ac.site')">
+                <img class="share-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrC4yXthmXYzahPVnq-3wuTWRZCqathHM7bQ&usqp=CAU" alt="Bagikan"> Copy Link
+            </button>
+        </div>
+        <div class="social-popup" id="socialPopupBacaManhuaBTTH">
+            <button class="close-btn" onclick="closeSocialPopup('socialPopupBacaManhuaBTTH')">Close</button>
+            <button class="share-btn" onclick="shareOnFacebook('Baca Manhua BTTH', 'https://manhua.aikacungwen.biz.id')">
+                <img class="share-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrC4yXthmXYzahPVnq-3wuTWRZCqathHM7bQ&usqp=CAU" alt="Bagikan"> Share on Facebook
+            </button>
+            <button class="share-btn" onclick="shareOnTwitter('Baca Manhua BTTH', 'https://manhua.aikacungwen.biz.id')">
+                <img class="share-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrC4yXthmXYzahPVnq-3wuTWRZCqathHM7bQ&usqp=CAU" alt="Bagikan"> Share on Twitter
+            </button>
+            <button class="share-btn" onclick="copyLink('https://manhua.aikacungwen.biz.id')">
+                <img class="share-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrC4yXthmXYzahPVnq-3wuTWRZCqathHM7bQ&usqp=CAU" alt="Bagikan"> Copy Link
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function openSocialPopup(title, url) {
+            var socialPopupId = title.replace(/\s+/g, ''); // Menghapus spasi dan menggabungkan kata-kata
+            var socialPopup = document.getElementById(`socialPopup${socialPopupId}`);
+            socialPopup.style.display = "block";
+        }
+
+        function closeSocialPopup(socialPopupId) {
+            var socialPopup = document.getElementById(socialPopupId);
+            socialPopup.style.display = "none";
+        }
+
+        function shareOnFacebook(title, url) {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&text=${title}`, '_blank');
+        }
+
+        function shareOnTwitter(title, url) {
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`, '_blank');
+        }
+
+        function copyLink(url) {
+            navigator.clipboard.writeText(url).then(function() {
+                alert('Link berhasil disalin!');
+            }).catch(function(err) {
+                console.error('Gagal menyalin link: ', err);
+            });
+        }
+    </script>
+
+</body>
+</html>
+
